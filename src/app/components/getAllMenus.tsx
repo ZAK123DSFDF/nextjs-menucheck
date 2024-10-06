@@ -36,6 +36,13 @@ export default function GetAllMenus() {
           >
             <img
               src={menu?.Picture[0]}
+              srcSet={`
+                ${menu?.Picture[0]} 200w,
+                ${menu?.Picture[0]}?w=400 400w,
+                ${menu?.Picture[0]}?w=600 600w
+                  `}
+              sizes="(max-width: 600px) 100vw, 200px"
+              loading="lazy"
               width={200}
               height={200}
               alt="card"

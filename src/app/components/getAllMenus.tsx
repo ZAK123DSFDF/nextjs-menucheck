@@ -37,9 +37,6 @@ export default function GetAllMenus() {
           >
             <Image
               src={menu?.Picture[0]}
-              loader={({ src }) => {
-                return src;
-              }}
               width={200}
               height={200}
               alt="card"

@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllMenus } from "../actions/getAllMenus";
 import { useEffect } from "react";
 import { Box } from "@mui/material";
+import Image from "next/image";
 
 export default function GetAllMenus() {
   const { data } = useQuery({
@@ -34,15 +35,11 @@ export default function GetAllMenus() {
               boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
             }}
           >
-            <img
+            <Image
               src={menu?.Picture[0]}
-              srcSet={`
-                ${menu?.Picture[0]} 200w,
-                ${menu?.Picture[0]}?w=400 400w,
-                ${menu?.Picture[0]}?w=600 600w
-                  `}
-              sizes="(max-width: 600px) 100vw, 200px"
-              loading="lazy"
+              loader={({ src }) => {
+                return src;
+              }}
               width={200}
               height={200}
               alt="card"
